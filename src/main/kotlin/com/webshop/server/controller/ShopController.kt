@@ -36,6 +36,3 @@ class ShopController {
         else return HttpStatus.PAYMENT_REQUIRED
     }
 }
-//curl -X POST -H 'Content-Type: application/json' -d '{"id":1,"name":"prod","count":12}' 'http://localhost:8080/goods/admin/addGoods' -i -u admin:admin
-
-//KSPTSeti317
