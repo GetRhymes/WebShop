@@ -23,7 +23,7 @@
 
 -> Add new product to database, this endpoint need request body like this: {"id":6,"name":"prod1","count":12}
 
-    /goods/addGoods - POST METHOD
+    /goods/add - POST METHOD
 
 #### User's
 
@@ -33,7 +33,7 @@
 
 -> Buy any goods, this endpoint need request param like this: id=6
 
-    /goods/buyGoods - POST METHOD
+    /goods/buy - POST METHOD
 
 ### Example curl
 

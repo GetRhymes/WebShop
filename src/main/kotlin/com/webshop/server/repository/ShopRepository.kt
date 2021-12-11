@@ -18,10 +18,4 @@ interface ShopRepository: JpaRepository<GoodsModel, Int> {
         nativeQuery = true
     )
     fun buyGoods(@Param("id_prod") id: Int)
-
-    @Query(
-        value = "select * from goods",
-        nativeQuery = true
-    )
-    fun getAllGoods(): List<GoodsModel>
 }

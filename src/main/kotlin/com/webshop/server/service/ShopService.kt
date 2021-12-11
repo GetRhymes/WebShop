@@ -13,7 +13,7 @@ class ShopService {
 
     fun getAllGoods(): List<GoodsModel> {
         if (repository == null) throw Exception("Repository was not found")
-        return repository.getAllGoods()
+        return repository.findAll()
     }
 
     fun buyGoods(id: Int): Boolean {

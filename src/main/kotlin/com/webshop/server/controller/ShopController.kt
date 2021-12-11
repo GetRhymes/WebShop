@@ -13,13 +13,13 @@ class ShopController {
     @Autowired
     private val shopService: ShopService? = null
 
-    @GetMapping("/", produces = ["application/json"])
+    @GetMapping("/all", produces = ["application/json"])
     fun getAllGoods(): List<GoodsModel> {
         if (shopService == null) throw Exception("ShopService was not found")
         else return shopService.getAllGoods()
     }
 
-    @PostMapping("/admin/addGoods", produces = ["application/json"])
+    @PostMapping("/admin/add", produces = ["application/json"])
     fun addGoods(@RequestBody goodsModel: GoodsModel): HttpStatus {
         if (shopService == null) throw Exception("ShopService was not found")
         else {
@@ -28,7 +28,7 @@ class ShopController {
         }
     }
 
-    @PostMapping("/buyGoods", produces = ["application/json"])
+    @PostMapping("/buy", produces = ["application/json"])
     fun buyGoods(@RequestParam id: Int): HttpStatus {
         if (shopService == null) throw Exception("ShopService was not found")
         return if (shopService.buyGoods(id)) HttpStatus.OK
