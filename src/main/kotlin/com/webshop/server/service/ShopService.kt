@@ -18,7 +18,7 @@ class ShopService {
 
     fun buyGoods(id: Int, count: Int): Boolean {
         if (null == repository) throw ClassNotFoundException("Repository was not found")
-        return if (repository.findById(id).get().count!! > 0) {
+        return if (repository.findById(id).get().count!! - count >= 0) {
             repository.buyGoods(id, count)
             true
         } else false
