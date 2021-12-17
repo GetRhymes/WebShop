@@ -14,8 +14,8 @@ interface ShopRepository: JpaRepository<GoodsModel, Int> {
     @Modifying
     @Transactional
     @Query(
-        value = "update goods as g set g.count = g.count - 1 where g.id = ?1",
+        value = "update goods as g set g.count = g.count - ?2 where g.id = ?1",
         nativeQuery = true
     )
-    fun buyGoods(@Param("id_prod") id: Int)
+    fun buyGoods(@Param("id_prod") id: Int, @Param("count") count: Int)
 }

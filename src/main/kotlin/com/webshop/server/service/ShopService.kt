@@ -12,20 +12,20 @@ class ShopService {
     private val repository: ShopRepository? = null
 
     fun getAllGoods(): List<GoodsModel> {
-        if (repository == null) throw Exception("Repository was not found")
+        if (repository == null) throw ClassNotFoundException("Repository was not found")
         return repository.findAll()
     }
 
-    fun buyGoods(id: Int): Boolean {
-        if (null == repository) throw Exception("Repository was not found")
+    fun buyGoods(id: Int, count: Int): Boolean {
+        if (null == repository) throw ClassNotFoundException("Repository was not found")
         return if (repository.findById(id).get().count!! > 0) {
-            repository.buyGoods(id)
+            repository.buyGoods(id, count)
             true
         } else false
     }
 
     fun addGoods(goodsModel: GoodsModel) {
-        if (repository == null) throw Exception("Repository was not found")
+        if (repository == null) throw ClassNotFoundException("Repository was not found")
         repository.save(goodsModel)
     }
 }
