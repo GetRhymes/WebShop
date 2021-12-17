@@ -13,7 +13,7 @@ class ShopController {
     @Autowired
     private val shopService: ShopService? = null
 
-    @GetMapping("/all", produces = ["application/json"])
+    @GetMapping("/all")
     fun getAllGoods(): List<GoodsModel> {
         if (shopService == null) throw Exception("ShopService was not found")
         else return shopService.getAllGoods()
